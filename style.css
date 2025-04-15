@@ -1,12 +1,86 @@
 body {
-    background-image: url("images/background.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-h1, h2 {
-    color: #f2f2f2;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #f0f8ff;
     text-align: center;
-    font-size: 2.5em;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: 10px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+#greeting, #task-section {
     margin-top: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #87ceeb;
+    font-size: 1em;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #87ceeb;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #4682b4;
+}
+
+#bottles {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.bottle {
+    position: relative;
+    margin: 10px;
+    width: 80px;
+    height: 150px;
+    background: url('images/full-bottle.png') no-repeat center/contain;
+    cursor: pointer;
+    animation: float 2s ease-in-out infinite;
+}
+
+.bottle span {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8em;
+    color: #333;
+    font-weight: bold;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.message {
+    font-size: 1.2em;
+    color: green;
+    margin-top: 20px;
+    animation: pop 0.5s ease;
+}
+
+@keyframes pop {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }

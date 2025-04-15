@@ -7,9 +7,22 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Fill your water bottle today!</h1>
-<h2 id="greeting"></h2>
-<script src="script.js">
-</script>
+<div id="name-section">
+  <h1>Hello! What's your name?</h1>
+  <input type="text" id="nameInput" placeholder="Your name here" onkeydown="">
+  <button onclick="startApp()">Start</button>
+</div>
+
+<div id="greeting" class="hidden">
+  <h1 id="greetText"></h1>
+</div>
+
+<div id="task-section" class="hidden">
+  <input type="text" id="taskInput" placeholder="Add a new task" onkeydown="">
+  <button onclick="addTask()">Add Task</button>
+  <div id="bottles"></div>
+  <div id="congratsMessage" class="message hidden"></div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
