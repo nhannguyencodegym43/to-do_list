@@ -1,9 +1,17 @@
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    background-color: #f0f8ff;
+    /*background-color: #f0f8ff;*/
     text-align: center;
     padding: 20px;
     overflow-x: hidden;
+    background: linear-gradient(-45deg, #ffecd2, #fcb69f, #add8e6, #fbc2eb);
+    background-size: 500% 600%;
+    animation: gradientBG 10s ease infinite;
+}
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 h1 {
@@ -55,7 +63,7 @@ button:hover {
     height: 150px;
     background: url('images/full-bottle.png') no-repeat center/contain;
     cursor: pointer;
-    animation: float 2s ease-in-out infinite;
+    animation: floatBottle 2s ease-in-out infinite;
 }
 
 .bottle span {
@@ -67,12 +75,46 @@ button:hover {
     color: #333;
     font-weight: bold;
 }
-
-@keyframes float {
+.icon {
+    position: absolute;
+    animation: floatIcons 5s infinite ease-in-out;
+}
+@keyframes floatIcons {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+.spin {
+    animation: spin 4s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.bounce {
+    animation: bounce 1.5s infinite ease-in-out;
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+.pulse {
+    animation: pulse 2s infinite ease-in-out;
+}
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+@keyframes floatBottle {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
-
 .message {
     font-size: 1.2em;
     color: green;

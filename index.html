@@ -23,6 +23,28 @@
   <div id="bottles"></div>
   <div id="congratsMessage" class="message hidden"></div>
 </div>
+<img src="icons/blue.png" class="icon" style="top:10%; left:20%; height: 100px; width:100px; "/>
+<img src="icons/green.png" class="icon pulse" style="top:50%; left:70%; height: 100px; width:100px; "/>
+<img src="icons/lightgreen.png" class="icon spin" style="top:20%; left:80%; height: 100px; width:100px; "/>
+<div id="lottie" style="position: absolute; top: 30%; left: 1%; height: 400px; width:400px;"></div>
+<div id="lottie2" style="position: absolute; top: 50%; left: 85%; height: 200px; width:200px;"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+<script>
+  lottie.loadAnimation({
+    container: document.getElementById('lottie'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: "icons/turtle.json"
+  });
+  lottie.loadAnimation({
+    container: document.getElementById('lottie2'),
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: "icons/sea_trees.json"
+  });
+</script>
 <script src="script.js"></script>
 </body>
 </html>
