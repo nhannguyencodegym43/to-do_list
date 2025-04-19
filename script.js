@@ -77,7 +77,7 @@ function showCompletedTasks() {
             restoreButton.textContent = 'Restore';
             restoreButton.className = 'restore-button';
             restoreButton.onclick = function () {
-                restoreTask(index);
+                restoreTask(task);
             };
 
             listItem.appendChild(restoreButton);
@@ -102,25 +102,30 @@ function showCongrats(taskName) {
     }, 2000);
 }
 
-function restoreTask(index) {
-    const task = completedTasks.splice(index, 1)[0];
-    const bottle = document.createElement('div');
-    bottle.className = 'bottle';
-    bottle.innerHTML = `<span>${task}</span>`;
-    bottle.onclick = function () {
-        this.style.backgroundImage = "url('images/empty-bottle.png')";
-        const taskName = this.querySelector('span').innerText;
-        this.querySelector('span').innerText = '';
-        setTimeout(() => {
-            this.remove();
-            showCongrats(taskName);
-        }, 800);
-    };
+function restoreTask(task) {
+    const taskIndex = completedTasks.indexOf(task);
+    if (taskIndex !== -1) {
+        completedTasks.splice(taskIndex, 1);
+        const bottle = document.createElement('div');
+        bottle.className = 'bottle';
+        bottle.innerHTML = `<span>${task}</span>`;
+        bottle.onclick = function () {
+            this.style.backgroundImage = "url('images/empty-bottle.png')";
+            const taskName = this.querySelector('span').innerText;
+            this.querySelector('span').innerText = '';
+            setTimeout(() => {
+                this.remove();
+                showCongrats(taskName);
+            }, 800);
+        };
 
-    document.getElementById('bottles').appendChild(bottle);
-    const list = document.getElementById('completedTasksList');
-    const listItem = list.children[index];
-    if (listItem) {
-        listItem.remove();
+        document.getElementById('bottles').appendChild(bottle);
+        const list = document.getElementById('completedTasksList');
+        const listItem = Array.from(list.children).find(
+            (item) => item.textContent.includes(task)
+        );
+        if (listItem) {
+            listItem.remove();
+        }
     }
 }
